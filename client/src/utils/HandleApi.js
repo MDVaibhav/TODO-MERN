@@ -7,15 +7,15 @@ const getAllToDo=(setToDo)=>{
     })
 }
 
-const addToDo=(text,setText,setToDo)=>{
+const addToDo=(text,expiryDate,setText,setToDo)=>{
 
-axios.post(`${baseURL}/save`,{text}).then((data)=>{console.log(data);setText("");getAllToDo(setToDo)}).catch((err)=>console.log(err))
+axios.post(`${baseURL}/save`,{text,expiryDate}).then((data)=>{console.log(data);setText("");getAllToDo(setToDo)}).catch((err)=>console.log(err))
 
 }
 
-const updateToDo=(toDoId,text,setToDo,setText,setIsUpdating)=>{
+const updateToDo=(toDoId,text,expiryDate,setToDo,setText,setIsUpdating)=>{
 
-    axios.post(`${baseURL}/update`,{_id :toDoId,text}).then((data)=>{setText("");setIsUpdating(false);getAllToDo(setToDo)}).catch((err)=>console.log(err))
+    axios.post(`${baseURL}/update`,{_id :toDoId,text,expiryDate}).then((data)=>{setText("");setIsUpdating(false);getAllToDo(setToDo)}).catch((err)=>console.log(err))
     
     }
 
