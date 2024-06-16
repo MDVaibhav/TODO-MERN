@@ -9,6 +9,7 @@ function App() {
   const [expiryDate, setExpiryDate] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
   const [toDoId, settoDoId] = useState("");
+  
 
   useEffect(() => {
     getAllToDo(setToDo);
@@ -24,16 +25,20 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <h1>....TODO List....</h1><br />
+        <h1>SpectrumTasker</h1><br />
+       
         <div className="input-box">
+        <label><strong>TASK:</strong></label>
           <input
             type="text"
             placeholder="Add ToDo Item"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          <label><strong>COMPLETION DATE:</strong></label>
           <input
             type="datetime-local"
+           
             value={expiryDate}
             onChange={(e) => setExpiryDate(e.target.value)}
           />
